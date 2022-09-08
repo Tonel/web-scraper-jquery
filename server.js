@@ -19,12 +19,14 @@ $.get("https://scrapeme.live/shop/", function(html) {
             url: $(productHTML).find("a").attr("href"),
             image: $(productHTML).find("img").attr("src"),
             price: $(productHTML).find("span").first().text(),
-            // storing the original HTML content
+            // store the original HTML content
             html: $(productHTML).html()
         };
 
         products.push(product);
     });
+
+    // store the product data on a db ...
 
     const priceHTMLElements = []
     // use a regex to identify price span HTML elements
@@ -34,9 +36,8 @@ $.get("https://scrapeme.live/shop/", function(html) {
             priceHTMLElements.push(spanHTMLElement)
         }
     });
+    // use the price data to achieve something ...
 
-    console.log(products)
-
-    console.log(priceHTMLElements.length)
+    console.log(JSON.stringify(products))
 });
 
