@@ -1,0 +1,15 @@
+{
+  "name": "web-scraper-jquery",
+  "version": "1.0.0",
+  "description": "A simple Web Scraper with JQuery in Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Antonello Zanini",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.1",
+    "jsdom": "^20.0.0"
+  }
+}
