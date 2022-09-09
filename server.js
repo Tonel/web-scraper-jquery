@@ -28,16 +28,18 @@ $.get("https://scrapeme.live/shop/", function(html) {
 
     // store the product data on a db ...
 
-    const priceHTMLElements = []
+    const prices = new Set()
     // use a regex to identify price span HTML elements
     $(html).find("span").each((i, spanHTMLElement) => {
         // keep only HTML elements whose text is a price
         if (/^£\d+.\d{2}$/.test($(spanHTMLElement).text())) {
-            priceHTMLElements.push(spanHTMLElement)
+            // add the scraped price to the prices set
+            prices.add($(spanHTMLElement).text())
         }
     });
     // use the price data to achieve something ...
 
+    console.log(JSON.stringify([...prices]))
     console.log(JSON.stringify(products))
 });
 
